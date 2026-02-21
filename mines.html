@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Мины — Union Crypto Casino</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="loading hide" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text" id="loadingText">Загрузка...</div>
+    </div>
+
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-dice"></i>
+                <span>UNION CRYPTO CASINO</span>
+            </div>
+            <div class="balance-widget">
+                <div class="balance-label">BALANCE</div>
+                <div class="balance-value" id="headerBalance">0.00</div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="bet-panel" style="margin-bottom: 16px;">
+                <div class="bet-row">
+                    <div class="bet-input">
+                        <input type="number" id="minesBet" value="1.00" min="0.1" step="0.1" placeholder="Ставка">
+                    </div>
+                    <div class="auto-input" style="justify-content: center;">
+                        <i class="fas fa-bomb" style="color: var(--accent);"></i>
+                        <input type="number" id="minesCount" value="3" min="1" max="24" title="Количество мин">
+                    </div>
+                </div>
+                <div class="multiplier-bar">
+                    <span>Множитель</span>
+                    <span class="mono" id="minesMultiplier">1.00x</span>
+                </div>
+                <button type="button" class="btn-primary" id="minesAction">START GAME</button>
+            </div>
+
+            <div class="mines-grid" id="minesGrid"></div>
+
+            <p style="text-align: center; margin-top: 12px;">
+                <a href="index.html" style="color: var(--text-secondary); font-size: 13px;">← Все игры</a>
+            </p>
+        </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/telegram.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/mines.js"></script>
+</body>
+</html>

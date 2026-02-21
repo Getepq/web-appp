@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Union Crypto Casino</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="loading hide" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text" id="loadingText">Загрузка...</div>
+    </div>
+
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-dice"></i>
+                <span>UNION CRYPTO CASINO</span>
+            </div>
+            <div class="balance-widget" id="refreshBalance">
+                <div class="balance-label">BALANCE</div>
+                <div class="balance-value" id="headerBalance">0.00</div>
+            </div>
+        </header>
+
+        <nav class="nav">
+            <a href="crash.html" class="nav-btn"><i class="fas fa-chart-line"></i> CRASH</a>
+            <a href="mines.html" class="nav-btn"><i class="fas fa-bomb"></i> MINES</a>
+        </nav>
+
+        <main class="content">
+            <p style="color: var(--text-secondary); text-align: center; padding: 24px;">
+                Выберите игру в меню выше.
+            </p>
+            <div style="display: grid; gap: 12px; padding: 16px;">
+                <a href="crash.html" class="btn-primary" style="text-align: center; text-decoration: none; color: var(--bg);">
+                    <i class="fas fa-chart-line"></i> Краш
+                </a>
+                <a href="mines.html" class="btn-primary" style="text-align: center; text-decoration: none; color: var(--bg);">
+                    <i class="fas fa-bomb"></i> Мины
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/telegram.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+        (function() {
+            const refreshBtn = document.getElementById('refreshBalance');
+            if (refreshBtn) refreshBtn.addEventListener('click', refreshBalance);
+            async function refreshBalance() {
+                try {
+                    const b = await window.CasinoAPI.getBalance();
+                    window.CasinoUI.updateBalanceDisplay(b);
+                } catch (_) {}
+            }
+            refreshBalance();
+        })();
+    </script>
+</body>
+</html>

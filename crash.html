@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Краш — Union Crypto Casino</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="loading hide" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text" id="loadingText">Загрузка...</div>
+    </div>
+
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-dice"></i>
+                <span>UNION CRYPTO CASINO</span>
+            </div>
+            <div class="balance-widget">
+                <div class="balance-label">BALANCE</div>
+                <div class="balance-value" id="headerBalance">0.00</div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="timer-container" id="timerContainer">
+                <div class="timer-display" id="timerDisplay">10</div>
+                <div class="timer-label" id="timerLabel">WAITING FOR PLAYERS</div>
+            </div>
+
+            <div class="crash-container">
+                <div class="crash-canvas">
+                    <canvas id="crashCanvas" width="380" height="230"></canvas>
+                    <div class="crash-overlay">
+                        <div class="crash-multiplier mono" id="crashMultiplier">1.00x</div>
+                        <div class="crash-status" id="crashStatus">WAITING</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bet-panel">
+                <div class="bet-row">
+                    <div class="bet-input">
+                        <input type="number" id="crashBet" value="1.00" min="0.1" step="0.1">
+                    </div>
+                    <div class="auto-input">
+                        <i class="fas fa-bolt" style="color: var(--accent);"></i>
+                        <input type="number" id="autoCashout" value="2.00" min="1.1" step="0.1">
+                    </div>
+                </div>
+                <button type="button" class="btn-primary" id="crashAction" disabled>PLACE BET</button>
+            </div>
+
+            <p style="text-align: center; margin-top: 12px;">
+                <a href="index.html" style="color: var(--text-secondary); font-size: 13px;">← Все игры</a>
+            </p>
+        </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/telegram.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/crash.js"></script>
+</body>
+</html>
